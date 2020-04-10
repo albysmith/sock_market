@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mdscript name="StockMarket" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="E:/Mod Stuff/X4 Extracted/2.5beta/libraries/md.xsd">
+  <cues>
+    <cue name="Init">
+      <conditions>
+        <event_cue_signalled cue="md.Setup.GameStart" />
+        <!-- <check_value value="false" /> -->
+      </conditions>
+      <actions>
+        <set_value name="$RowCount" exact="20" />
+        <set_value name="md.$ListenerTable" exact="table[]" />
+        <create_list name="$End_Names" />
+        <create_list name="$Middle_Names" />
+        <create_list name="$Start_Names" />
+        <append_to_list name="$Start_Names" exact="'Trade'" />
+        <append_to_list name="$Start_Names" exact="'Rusiris'" />
+        <append_to_list name="$Start_Names" exact="'Argon'" />
+        <append_to_list name="$Start_Names" exact="'Teladi'" />
+        <append_to_list name="$Start_Names" exact="'Paranid'" />
+        <append_to_list name="$Start_Names" exact="'Split'" />
+        <append_to_list name="$Start_Names" exact="'Boron'" />
+        <append_to_list name="$Start_Names" exact="'New'" />
+        <append_to_list name="$Start_Names" exact="'Ore'" />
+        <append_to_list name="$Start_Names" exact="'Merchant'" />
+        <append_to_list name="$Start_Names" exact="'Holy'" />
+        <append_to_list name="$Start_Names" exact="'Fires of'" />
+        <append_to_list name="$Start_Names" exact="'Second'" />
+        <append_to_list name="$Start_Names" exact="'Ianamus'" />
+        <append_to_list name="$Start_Names" exact="'Eleventh'" />
+        <append_to_list name="$Start_Names" exact="'Brennen'" />
+        <append_to_list name="$Start_Names" exact="'Mi Ton'" />
+        <append_to_list name="$Start_Names" exact="'Bala Gi'" />
+        <append_to_list name="$Start_Names" exact="'Tebathimanckatt'" />
+        <append_to_list name="$Start_Names" exact="'Hewa'" />
+        <append_to_list name="$Start_Names" exact="'Ringo Moon'" />
+        <append_to_list name="$Start_Names" exact="'Ocracoke'" />
+        <append_to_list name="$Start_Names" exact="'Freedom'" />
+        <append_to_list name="$Start_Names" exact="'Free'" />
+        <append_to_list name="$Start_Names" exact="'Passive'" />
+        <append_to_list name="$Start_Names" exact="'Victory'" />
+        <append_to_list name="$Start_Names" exact="'Legal'" />
+        <append_to_list name="$Start_Names" exact="'Antigone'" />
+        <append_to_list name="$Start_Names" exact="'Gunne'" />
+        <append_to_list name="$Start_Names" exact="'Akeela'" />
+        <append_to_list name="$Start_Names" exact="'Hatikvah'" />
+        <append_to_list name="$Start_Names" exact="'Extraction'" />
+        <append_to_list name="$Start_Names" exact="'Ministry'" />
+        <append_to_list name="$Start_Names" exact="'Scaleplate'" />
+        <append_to_list name="$Start_Names" exact="'Cloudbase'" />
+        <append_to_list name="$Start_Names" exact="'Surrender'" />
+        <append_to_list name="$Start_Names" exact="'Advanced'" />
+        <append_to_list name="$Start_Names" exact="'Mirco'" />
+        <append_to_list name="$Start_Names" exact="'Antimatter'" />
+        <append_to_list name="$Start_Names" exact="'Maja'" />
+        <append_to_list name="$Start_Names" exact="'Breakthrough'" />
+        <append_to_list name="$Start_Names" exact="'Radical'" />
+        <append_to_list name="$Start_Names" exact="'Extreme'" />
+        <append_to_list name="$Start_Names" exact="'Excellent'" />
+        <append_to_list name="$Start_Names" exact="'Edge'" />
+        <append_to_list name="$Start_Names" exact="'Whisper'" />
+        <append_to_list name="$Middle_Names" exact="'Society'" />
+        <append_to_list name="$Middle_Names" exact="'Social'" />
+        <append_to_list name="$Middle_Names" exact="'Partnership'" />
+        <append_to_list name="$Middle_Names" exact="'Syndicate'" />
+        <append_to_list name="$Middle_Names" exact="'Northern'" />
+        <append_to_list name="$Middle_Names" exact="'Southern'" />
+        <append_to_list name="$Middle_Names" exact="'Eastern'" />
+        <append_to_list name="$Middle_Names" exact="'Western'" />
+        <append_to_list name="$Middle_Names" exact="'Engine'" />
+        <append_to_list name="$Middle_Names" exact="'Weapon'" />
+        <append_to_list name="$Middle_Names" exact="'Hull'" />
+        <append_to_list name="$Middle_Names" exact="'Field'" />
+        <append_to_list name="$Middle_Names" exact="'Industrial'" />
+        <append_to_list name="$Middle_Names" exact="'Silicon'" />
+        <append_to_list name="$Middle_Names" exact="'Mines'" />
+        <append_to_list name="$Middle_Names" exact="'Mine'" />
+        <append_to_list name="$Middle_Names" exact="'Medical'" />
+        <append_to_list name="$Middle_Names" exact="'Metals'" />
+        <append_to_list name="$Middle_Names" exact="'Energy'" />
+        <append_to_list name="$Middle_Names" exact="'Quantum'" />
+        <append_to_list name="$Middle_Names" exact="'Future'" />
+        <append_to_list name="$Middle_Names" exact="'Teladianium'" />
+        <append_to_list name="$Middle_Names" exact="'Graphene'" />
+        <append_to_list name="$Middle_Names" exact="'Chips'" />
+        <append_to_list name="$Middle_Names" exact="'Drone'" />
+        <append_to_list name="$Middle_Names" exact="'Snails'" />
+        <append_to_list name="$Middle_Names" exact="'Helium'" />
+        <append_to_list name="$Middle_Names" exact="'Hydrogen'" />
+        <append_to_list name="$Middle_Names" exact="'Methane'" />
+        <append_to_list name="$Middle_Names" exact="'Nividium'" />
+        <append_to_list name="$Middle_Names" exact="'Silicon'" />
+        <append_to_list name="$Middle_Names" exact="'Ore'" />
+        <append_to_list name="$Middle_Names" exact="'Minerals'" />
+        <append_to_list name="$Middle_Names" exact="'Pharmaceutical'" />
+        <append_to_list name="$Middle_Names" exact="'Spacefuel'" />
+        <append_to_list name="$Middle_Names" exact="'Plasma'" />
+        <append_to_list name="$Middle_Names" exact="'Crystal'" />
+        <append_to_list name="$Middle_Names" exact="'Infrastructure'" />
+        <append_to_list name="$End_Names" exact="'Industries'" />
+        <append_to_list name="$End_Names" exact="'Corporation'" />
+        <append_to_list name="$End_Names" exact="'Corp'" />
+        <append_to_list name="$End_Names" exact="'Inc'" />
+        <append_to_list name="$End_Names" exact="'Monopoly'" />
+        <append_to_list name="$End_Names" exact="'Megacorp'" />
+        <append_to_list name="$End_Names" exact="'Outfit'" />
+        <append_to_list name="$End_Names" exact="'Association'" />
+        <append_to_list name="$End_Names" exact="'Enterprise'" />
+        <append_to_list name="$End_Names" exact="'Company'" />
+        <append_to_list name="$End_Names" exact="'Union'" />
+        <append_to_list name="$End_Names" exact="'Refinery'" />
+        <append_to_list name="$End_Names" exact="'Refineries'" />
+        <append_to_list name="$End_Names" exact="'Composites'" />
+        <append_to_list name="$End_Names" exact="'Arrays'" />
+        <append_to_list name="$End_Names" exact="'&amp; Hallucinogenics'" />
+        <append_to_list name="$End_Names" exact="'Delirium'" />
+        <append_to_list name="$End_Names" exact="'Foundation'" />
+        <append_to_list name="$End_Names" exact="'Profit'" />
+        <append_to_list name="$End_Names" exact="'Engineering'" />
+        <append_to_list name="$End_Names" exact="'Firm'" />
+        <append_to_list name="$End_Names" exact="'School'" />
+        <append_to_list name="$End_Names" exact="'Fund'" />
+        <append_to_list name="$End_Names" exact="'Commodities'" />
+        <append_to_list name="$End_Names" exact="'Futures'" />
+        <append_to_list name="$End_Names" exact="'Derivitive'" />
+        <append_to_list name="$End_Names" exact="'Accountancy'" />
+        <append_to_list name="$End_Names" exact="'Advisers'" />
+        <append_to_list name="$End_Names" exact="'Advocates'" />
+        <append_to_list name="$End_Names" exact="'Design'" />
+        <append_to_list name="$End_Names" exact="'Solutions'" />
+        <append_to_list name="$End_Names" exact="'Communications'" />
+        <append_to_list name="$End_Names" exact="'Capital'" />
+        <append_to_list name="$End_Names" exact="'Systems'" />
+        <append_to_list name="$End_Names" exact="'Vectors'" />
+        <append_to_list name="$End_Names" exact="'Services'" />
+        <set_value name="$CompanyTable" exact="table[]" />
+        <do_all exact="50">
+          <set_value name="$WordOne" exact="$Start_Names.random" />
+          <set_value name="$WordTwo" exact="$Middle_Names.random" />
+          <set_value name="$WordThree" exact="$End_Names.random" />
+          <set_value name="$CompanyName" exact="$WordOne + ' ' + $WordTwo + ' ' + $WordThree" />
+          <set_value name="$NewEntry" exact="$CompanyTable.keys.list.max + 1" />
+
+          <set_value name="$CompanyTable.{$NewEntry}" exact="table[]" />
+          <!-- <find_object name="$Cost" space="player.galaxy" owner="$NewEntry" multiple="true"></find_object> -->
+          <set_value name="$CompanyTable.{$NewEntry}.$Name" exact="$CompanyName" />
+          <set_value name="$CompanyTable.{$NewEntry}.$AvailableStock" min="500" max="2000" />
+          <set_value name="$CompanyTable.{$NewEntry}.$CurrentStockOwned" exact="0" />
+          <set_value name="$CompanyTable.{$NewEntry}.$CurrentValue" exact="0" />
+          <set_value name="$CompanyTable.{$NewEntry}.$StockPrice" min="15000" max="50000" />
+          <!-- <set_value name="$CompanyTable.{$NewEntry}.$Cost" exact="$Cost.count" /> -->
+
+        </do_all>
+        <remove_value name="$NewEntry" />
+        <remove_value name="$WordOne" />
+        <remove_value name="$WordTwo" />
+        <remove_value name="$WordThree" />
+        <remove_value name="$CompanyName" />
+
+      </actions>
+      <cues>
+        <!-- test -->
+        <!-- <cue name="Cheat_Rep">
+          <conditions>
+            <event_player_activated_weapongroup />
+          </conditions>
+          <actions>
+            <warp object="player.ship" zone="faction.argon.headquarters.zone">
+              <position object="faction.argon.headquarters" exact="5000" />
+            </warp>
+          </actions>
+        </cue> -->
+        <!-- test -->
+        <cue name="Update_Table" checkinterval="1h" checktime="30s">
+          <actions>
+            <do_all exact="$CompanyTable.keys.count" counter="$i">
+              <set_value name="$PriceChange" min="-5000" max="5000" />
+              <set_value name="$CompanyTable.{$i}.$StockPrice" exact="$PriceChange" operation="add" />
+            </do_all>
+          </actions>
+        </cue>
+        <cue name="StartConversation" instantiate="true">
+          <conditions>
+            <check_any>
+              <event_conversation_started conversation="default" />
+              <event_conversation_returned_to_section section="default" />
+            </check_any>
+          </conditions>
+          <actions>
+            <do_if value="event.object.type == entitytype.factionrepresentative">
+              <add_player_choice_sub text="'Stock Market'" tooltip="'Open Stock Trading Menu'" section="Open_From_Convo" />
+            </do_if>
+          </actions>
+        </cue>
+        <cue name="Open_From_Convo" instantiate="true">
+          <conditions>
+            <!-- <event_conversation_next_section section="Open_From_Convo" /> -->
+            <event_player_activated_weapongroup />
+          </conditions>
+          <actions>
+            <signal_cue_instantly cue="StockMarket_Open_Menu" param="[StockMarket_Fill_Menu, 5, 'Stock Market', 0]" />
+          </actions>
+        </cue>
+        <cue name="StockMarket_Open_Menu" instantiate="true">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <!-- event.param = [Fill_Menu, $Columns, $Title, $CompanyTable_of_Rows] -->
+            <!-- Create a new blank menu. -->
+            <signal_cue_instantly cue="md.Simple_Menu_API.Create_Menu" param="table[
+            $columns = event.param.{2}, 
+            $title = event.param.{3},
+            $height=800,
+            $width=1200,
+            ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
+            $col=3, 
+            $text='Next Page',
+            $cue=Next_Listener
+            ]" />
+            <!-- add all stocks here, 1 row for each -->
+            <set_value name="$Buttons" exact="$CompanyTable.keys.list" />
+            <do_if value="event.param.{5}?">
+              <set_value name="md.$Page" exact="event.param.{5}" />
+            </do_if>
+            <do_else>
+              <set_value name="md.$Page" exact="$RowCount" operation="add" />
+              <do_if value="md.$Page gt $Buttons.count">
+                <set_value name="md.$Page" exact="0" />
+              </do_if>
+            </do_else>
+            <do_all exact="if $RowCount gt $Buttons.count-md.$Page then $Buttons.count-md.$Page else $RowCount" counter="$i">
+              <set_value name="$Name" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$Name" />
+              <set_value name="$Max" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$AvailableStock" />
+              <set_value name="$Owned" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$CurrentStockOwned" />
+              <set_value name="$Value" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$CurrentValue" />
+              <set_value name="$Price" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$StockPrice" />
+              <!-- <set_value name="$Cost" exact="$CompanyTable.{$Buttons.{$i + md.$Page}}.$Cost" /> -->
+              <set_value name="$LabelOneText" exact="'%s'.[$Name]" />
+              <set_value name="$LabelTwoText" exact="'Stock Price: %sCr'.[$Price]" />
+              <do_if value="$Owned gt 0">
+                <set_value name="$LabelThreeText" exact="'Holdings: %s at %sCr per share'.[$Owned, $Value/$Owned]" />
+              </do_if>
+              <do_else>
+                <set_value name="$LabelThreeText" exact="'Holdings: %s'.[$Owned]" />
+              </do_else>
+              <set_value name="$LabelFourText" exact="'Max Shares Available: %s'.[$Max]" />
+
+              <include_actions ref="event.param.{1}" />
+
+            </do_all>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
+            $col=3, 
+            $text='Confirm Transactions',
+            $cue=Confirm_Listener
+            ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            $col=4, 
+            $text='Trades only finalized if confirmed!',
+            ]" />
+          </actions>
+        </cue>
+        <cue name="Next_Listener" instantiate="true">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <debug_text text="'Response: %s'.[event.param]" chance="100" filter="general" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Close_Menu" />
+            <signal_cue_instantly cue="StockMarket_Open_Menu" param="[StockMarket_Fill_Menu, 5, 'Stock Market']" />
+            <set_value name="md.$ListenerTable" exact="table[]" />
+          </actions>
+        </cue>
+        <cue name="Confirm_Listener" instantiate="true">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <debug_text text="'Response: %s'.[event.param]" chance="100" filter="general" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Close_Menu" />
+            <!-- read from md.$ListenerTable and confirm validity as you go -->
+            <signal_cue_instantly cue="md.Simple_Menu_API.Create_Menu" param="table[
+              $columns = 5, 
+              $title = 'Stock Market - Trade Confirmation',
+              $height=800,
+              $width=1200,
+              ]" />
+            <set_value name="$Rows" exact="md.$ListenerTable.keys.list" />
+            <do_all exact="$Rows.count" counter="$i">
+              <set_value name="$Name" exact="$CompanyTable.{$Rows.{$i}}.$Name" />
+              <set_value name="$TradeAmt" exact="md.$ListenerTable.{$Rows.{$i}}.$ResponseValue" />
+              <set_value name="$OldOwned" exact="$CompanyTable.{$Rows.{$i}}.$CurrentStockOwned" />
+              <set_value name="$Price" exact="$CompanyTable.{$Rows.{$i}}.$StockPrice" />
+              <debug_text text="'$Price ' + $Price" />
+              <!-- check whether things are valid -->
+              <set_value name="$Money" exact="($TradeAmt - $OldOwned) * $Price" />
+              <debug_text text="'$Money ' + $Money" />
+              <set_value name="$Transfer" exact="-1 * $Money" />
+              <debug_text text="'$Transfer ' + $Transfer" />
+              <do_if value="$Money lt 0">
+                <set_value name="$LabelOneText" exact="'Sale Confirmed'" />
+                <transfer_money from="faction.xenon" to="faction.player" amount="$Transfer * 1Cr" />
+                <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentStockOwned" exact="$TradeAmt" />
+                <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentValue" exact="$Transfer" operation="add" />
+                <do_if value="$Owned gt 0">
+                  <set_value name="$LabelFourText" exact="'Holdings: %s at %sCr per share'.[$TradeAmt, ($CompanyTable.{$Rows.{$i}}.$CurrentValue)/$TradeAmt]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$LabelFourText" exact="'Holdings: %s'.[$TradeAmt]" />
+                </do_else>
+                <set_value name="$LabelFiveText" exact="'\033G Funds Transferred: %sCr \033X'.[$Transfer]" />
+              </do_if>
+              <do_else>
+                <do_if value="$Money lt player.money">
+                  <set_value name="$LabelOneText" exact="'Purchase Confirmed'" />
+                  <transfer_money from="faction.player" to="faction.xenon" amount="$Money * 1Cr" />
+                  <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentStockOwned" exact="$TradeAmt" />
+                  <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentValue" exact="$Money" operation="add" />
+                  <set_value name="$CompanyTable.{$Rows.{$i}}.$PurchasedPrice" exact="$Price" />
+                  <set_value name="$LabelFourText" exact="'Holdings: %s at %sCr per share'.[$TradeAmt, ($CompanyTable.{$Rows.{$i}}.$CurrentValue)/$TradeAmt]" />
+                  <set_value name="$LabelFiveText" exact="'\033R Funds Transferred: %sCr \033X'.[$Transfer]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$LabelOneText" exact="'Trade Failed: Insufficient Funds'" />
+                  <do_if value="$Owned gt 0">
+                    <set_value name="$LabelFourText" exact="'Holdings: %s at %sCr per share'.[$OldOwned, ($CompanyTable.{$Rows.{$i}}.$CurrentValue)/$OldOwned]" />
+                  </do_if>
+                  <do_else>
+                    <set_value name="$LabelFourText" exact="'Holdings: %s'.[$OldOwned]" />
+                  </do_else>
+                  <set_value name="$LabelFiveText" exact="'\033R Attempted Transfer: %sCr \033X'.[$Transfer]" />
+                </do_else>
+              </do_else>
+              <set_value name="$LabelTwoText" exact="'%s'.[$Name]" />
+              <set_value name="$LabelThreeText" exact="'Previous Holdings: %s'.[$OldOwned]" />
+
+              <!-- MAKE ROWS AND LABELS -->
+              <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              $col=1, 
+              $text=$LabelOneText,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              $col=2, 
+              $text=$LabelTwoText,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              $col=3, 
+              $text=$LabelThreeText,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              $col=4, 
+              $text=$LabelFourText,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              $col=5, 
+              $text=$LabelFiveText,
+              ]" />
+            </do_all>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
+              $col=3, 
+              $text='Return to Stock List',
+              $cue=Next_Listener
+              ]" />
+            <!-- clear md.$ListenerTable -->
+            <set_value name="md.$ListenerTable" exact="table[]" />
+            <remove_value name="$LabelOneText" />
+            <remove_value name="$LabelTwoText" />
+            <remove_value name="$LabelThreeText" />
+            <remove_value name="$LabelFourText" />
+            <remove_value name="$LabelFiveText" />
+            <remove_value name="$Transfer" />
+            <remove_value name="$Name" />
+            <remove_value name="$TradeAmt" />
+            <remove_value name="$OldOwned" />
+            <remove_value name="$Price" />
+            <remove_value name="$Money" />
+          </actions>
+        </cue>
+        <library name="StockMarket_Fill_Menu">
+          <actions>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+                  $col=1, 
+                  $text=$LabelOneText, 
+                  ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+                  $col=2, 
+                  $text=$LabelTwoText, 
+                  ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+                  $col=3, 
+                  $text=$LabelThreeText, 
+                  ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider" param="table[
+                  $col = 4, 
+                  $min        = -1, 
+                  $minSelect  = 0, 
+                  $max        = $Max, 
+                  $maxSelect  = $Max - 1, 
+                  $start      = $Owned, 
+                  $step       = 1, 
+                  $suffix     =' shares', 
+                  $cue=Handle_Menu_Action
+                  ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+                  $col=5, 
+                  $text=$LabelFourText, 
+                  ]" />
+          </actions>
+        </library>
+        <cue name="Handle_Menu_Action" instantiate="true">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <debug_text text="'Response: %s'.[event.param]" chance="100" filter="general" />
+            <set_value name="$ResponseTable" exact="event.param" />
+            <!-- NEW METHOD -->
+            <!-- scroll updates md.$ListenerTable in real time -->
+            <!-- Confirm_Listener cue resets table and confirms trades/notifies of errors -->
+            <!-- Next_Listener cue returns to stock market menu for player to reattempt purchases -->
+            <set_value name="$Company" exact="$CompanyTable.keys.list.{$ResponseTable.$row - 1 + md.$Page}" />
+            <do_if value="md.$ListenerTable.keys.list.indexof.{$Company} == 0">
+              <set_value name="md.$ListenerTable.{$Company}" exact="table[]" />
+              <set_value name="md.$ListenerTable.{$Company}.$ResponseValue" exact="($ResponseTable.$value)i" />
+            </do_if>
+            <do_else>
+              <set_value name="md.$ListenerTable.{$Company}.$ResponseValue" exact="($ResponseTable.$value)i" />
+            </do_else>
+
+            <!-- OLD METHOD -->
+            <!-- scroll purchases/sells stock in real time, only updates owned stock if the transaction is valid -->
+            <!-- help menu text writes over menu to show actions -->
+            <!-- <set_value name="$Company" exact="$CompanyTable.keys.list.{$ResponseTable.$row - 1 + md.$Page}" />
+            <set_value name="$Money" exact="($ResponseTable.$value - $CompanyTable.{$Company}.$CurrentStockOwned) * $CompanyTable.{$Company}.$StockPrice * 100" />
+            <do_if value="$Money lt 0">
+              <show_help custom="'Shares Sold'" duration="2s" position="2" />
+              <transfer_money from="faction.xenon" to="faction.player" amount="-$Money" />
+              <set_value name="$CompanyTable.{$Company}.$CurrentStockOwned" exact="$ResponseTable.$value" />
+            </do_if>
+            <do_else>
+              <do_if value="$Money lt player.money">
+                <show_help custom="'Shares Purchased'" duration="2s" position="2" />
+                <transfer_money from="faction.player" to="faction.xenon" amount="$Money" />
+                <set_value name="$CompanyTable.{$Company}.$CurrentStockOwned" exact="$ResponseTable.$value" />
+              </do_if>
+              <do_else>
+                <show_help custom="'You cannot afford that!'" duration="5s" />
+              </do_else>
+            </do_else> -->
+
+
+          </actions>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</mdscript> <!-- 0: Top Left -->
+<!-- <position x="25" y="25" /> -->
+<!-- 1: Top Center -->
+<!-- <position x="50" y="25" /> -->
+<!-- 2: Top Right -->
+<!-- <position x="75" y="25" /> -->
+<!-- 3: Center Left -->
+<!-- <position x="25" y="50" /> -->
+<!-- 4: CENTER -->
+<!-- <position x="50" y="50" /> -->
+<!-- 5: Center Right -->
+<!-- <position x="75" y="50" /> -->
+<!-- 6: Bottom Left -->
+<!-- <position x="25" y="75" /> -->
+<!-- 7: Bottom Center -->
+<!-- <position x="50" y="75" /> -->
+<!-- 8: Bottom Right -->
+<!-- <position x="75" y="75" /> -->
+<!-- 9: Quadrant 1 (LT)-->
+<!-- <position x="33" y="33" /> -->
+<!-- 10: Quadrant 2 (RT) -->
+<!-- <position x="66" y="33" /> -->
+<!-- 11: Quadrant 3 (LB) -->
+<!-- <position x="33" y="66" /> -->
+<!-- 12: Quadrant 4 (RB) -->
+<!-- <position x="66" y="66" /> -->
+<!-- 13: Special 1 : Top-Top Center -->
+<!-- <position x="50" y="10" /> -->
+<!-- 14: Special 2 : Config menu -->
+<!-- <position x="50" y="15" /> -->
