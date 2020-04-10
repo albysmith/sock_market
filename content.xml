@@ -12,5 +12,5 @@
   <langugage description="" language="82"/>
   <langugage description="" language="86"/>
   <langugage description="" language="88"/>
-  <dependency id="simple_menu_api" version="001" optional="false"/>
+  <!-- <dependency id="simple_menu_api" version="001" optional="false"/> -->
 </content>

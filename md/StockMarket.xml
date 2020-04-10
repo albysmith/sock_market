@@ -49,7 +49,7 @@
         <append_to_list name="$Start_Names" exact="'Cloudbase'" />
         <append_to_list name="$Start_Names" exact="'Surrender'" />
         <append_to_list name="$Start_Names" exact="'Advanced'" />
-        <append_to_list name="$Start_Names" exact="'Mirco'" />
+        <append_to_list name="$Start_Names" exact="'Micro'" />
         <append_to_list name="$Start_Names" exact="'Antimatter'" />
         <append_to_list name="$Start_Names" exact="'Maja'" />
         <append_to_list name="$Start_Names" exact="'Breakthrough'" />
@@ -193,8 +193,8 @@
         </cue>
         <cue name="Open_From_Convo" instantiate="true">
           <conditions>
-            <!-- <event_conversation_next_section section="Open_From_Convo" /> -->
-            <event_player_activated_weapongroup />
+            <event_conversation_next_section section="Open_From_Convo" />
+            <!-- <event_player_activated_weapongroup /> -->
           </conditions>
           <actions>
             <signal_cue_instantly cue="StockMarket_Open_Menu" param="[StockMarket_Fill_Menu, 5, 'Stock Market', 0]" />
@@ -216,8 +216,8 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
             $col=3, 
-            $text='Next Page',
-            $cue=Next_Listener
+            $text=table[$text='Next Page'],
+            $onClick=Next_Listener
             ]" />
             <!-- add all stocks here, 1 row for each -->
             <set_value name="$Buttons" exact="$CompanyTable.keys.list" />
@@ -253,10 +253,10 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
             $col=3, 
-            $text='Confirm Transactions',
-            $cue=Confirm_Listener
+            $text=table[$text='Confirm Transactions'],
+            $onClick=Confirm_Listener
             ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
             $col=4, 
             $text='Trades only finalized if confirmed!',
             ]" />
@@ -303,7 +303,7 @@
                 <set_value name="$LabelOneText" exact="'Sale Confirmed'" />
                 <transfer_money from="faction.xenon" to="faction.player" amount="$Transfer * 1Cr" />
                 <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentStockOwned" exact="$TradeAmt" />
-                <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentValue" exact="$Transfer" operation="add" />
+                <set_value name="$CompanyTable.{$Rows.{$i}}.$CurrentValue" exact="$Transfer" operation="subtract" />
                 <do_if value="$Owned gt 0">
                   <set_value name="$LabelFourText" exact="'Holdings: %s at %sCr per share'.[$TradeAmt, ($CompanyTable.{$Rows.{$i}}.$CurrentValue)/$TradeAmt]" />
                 </do_if>
@@ -338,23 +338,23 @@
 
               <!-- MAKE ROWS AND LABELS -->
               <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
               $col=1, 
               $text=$LabelOneText,
               ]" />
-              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
               $col=2, 
               $text=$LabelTwoText,
               ]" />
-              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
               $col=3, 
               $text=$LabelThreeText,
               ]" />
-              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
               $col=4, 
               $text=$LabelFourText,
               ]" />
-              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
               $col=5, 
               $text=$LabelFiveText,
               ]" />
@@ -362,8 +362,8 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Button" param="table[
               $col=3, 
-              $text='Return to Stock List',
-              $cue=Next_Listener
+              $text=table[$text='Return to Stock List'],
+              $onClick=Next_Listener
               ]" />
             <!-- clear md.$ListenerTable -->
             <set_value name="md.$ListenerTable" exact="table[]" />
@@ -383,15 +383,15 @@
         <library name="StockMarket_Fill_Menu">
           <actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
                   $col=1, 
                   $text=$LabelOneText, 
                   ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
                   $col=2, 
                   $text=$LabelTwoText, 
                   ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
                   $col=3, 
                   $text=$LabelThreeText, 
                   ]" />
@@ -404,9 +404,9 @@
                   $start      = $Owned, 
                   $step       = 1, 
                   $suffix     =' shares', 
-                  $cue=Handle_Menu_Action
+                  $onSliderCellConfirm=Handle_Menu_Action
                   ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Label" param="table[
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text" param="table[
                   $col=5, 
                   $text=$LabelFourText, 
                   ]" />
